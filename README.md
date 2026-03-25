@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎨 **What We're Building:**
 
-## Getting Started
+A professional web application with:
+- 🔐 Login/Register pages
+- 📊 Dashboard with statistics
+- 💰 Requisitions management (create, approve, view)
+- 📋 Retirements management (submit, approve, view)
+- 🔔 Notifications panel with unread count
+- 👥 User management (admin only)
+- 📱 Responsive design (mobile + desktop)
+- 🎨 Beautiful UI with shadcn/ui components
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🛠️ **Tech Stack:**
+
+| Technology | Purpose |
+|------------|---------|
+| **Next.js 14** | React framework (App Router) |
+| **TypeScript** | Type safety |
+| **Tailwind CSS** | Styling |
+| **shadcn/ui** | Beautiful UI components |
+| **React Hook Form** | Form handling |
+| **Zod** | Validation |
+| **Axios** | API calls |
+| **Zustand** | State management |
+| **React Query** | Data fetching |
+
+---
+
+
+## 📁 **Project Structure We'll Create:**
+
+```
+erp-frontend/
+├── src/
+│   ├── app/                    # Next.js pages
+│   │   ├── (auth)/
+│   │   │   ├── login/
+│   │   │   └── register/
+│   │   ├── (dashboard)/
+│   │   │   ├── layout.tsx
+│   │   │   ├── page.tsx        # Dashboard
+│   │   │   ├── requisitions/
+│   │   │   ├── retirements/
+│   │   │   ├── notifications/
+│   │   │   └── users/
+│   │   └── layout.tsx
+│   ├── components/             # Reusable components
+│   │   ├── ui/                 # shadcn components
+│   │   ├── layout/
+│   │   ├── requisitions/
+│   │   └── retirements/
+│   ├── lib/                    # Utilities
+│   │   ├── api.ts              # Axios instance
+│   │   ├── auth.ts             # Auth helpers
+│   │   └── utils.ts
+│   ├── store/                  # Zustand stores
+│   │   └── auth-store.ts
+│   └── types/                  # TypeScript types
+│       └── index.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎨 **Pages We'll Build (in order):**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **Phase 1: Authentication (Day 1)**
+1. ✅ Login page
+2. ✅ Register page
+3. ✅ Auth layout
 
-## Learn More
+### **Phase 2: Dashboard & Layout (Day 2)**
+4. ✅ Dashboard layout with sidebar
+5. ✅ Navigation bar
+6. ✅ Dashboard home with stats
 
-To learn more about Next.js, take a look at the following resources:
+### **Phase 3: Requisitions (Day 3-4)**
+7. ✅ Requisitions list (table)
+8. ✅ Create requisition form
+9. ✅ Requisition details modal
+10. ✅ Approve/Reject actions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **Phase 4: Retirements (Day 5-6)**
+11. ✅ Retirements list (table)
+12. ✅ Submit retirement form (with file upload)
+13. ✅ Retirement details modal
+14. ✅ Approve/Reject actions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **Phase 5: Notifications (Day 7)**
+15. ✅ Notifications panel
+16. ✅ Notification bell with count
+17. ✅ Mark as read functionality
 
-## Deploy on Vercel
+### **Phase 6: User Management (Day 8)**
+18. ✅ Users list
+19. ✅ Create/Edit user
+20. ✅ Role management
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### **Phase 7: Polish (Day 9-10)**
+21. ✅ Loading states
+22. ✅ Error handling
+23. ✅ Responsive design
+24. ✅ Final touches
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
