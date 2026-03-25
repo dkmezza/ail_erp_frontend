@@ -70,8 +70,14 @@ export default function RegisterPage() {
       setIsLoading(true);
       setError('');
 
+      // Transform role to lowercase for backend
+      const registerData = {
+        ...data,
+        role: data.role.toLowerCase() as any,
+      };
+
       // Call register API
-      await registerUser(data as RegisterRequest);
+      await registerUser(registerData as RegisterRequest);
 
       // Show success message
       setSuccess(true);

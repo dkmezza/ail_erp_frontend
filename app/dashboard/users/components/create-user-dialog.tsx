@@ -77,7 +77,13 @@ export function CreateUserDialog({
       setError('');
       setSuccess(false);
 
-      await createUser(data as RegisterRequest);
+      // Transform role to lowercase for backend
+      const createData = {
+        ...data,
+        role: data.role.toLowerCase() as any,
+      };
+
+      await createUser(createData as RegisterRequest);
 
       setSuccess(true);
       reset();

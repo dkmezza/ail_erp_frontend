@@ -85,7 +85,13 @@ export function EditUserDialog({
       setError('');
       setSuccess(false);
 
-      await updateUser(user.id, data);
+      // Transform role to lowercase for backend
+      const updateData = {
+        ...data,
+        role: data.role.toLowerCase() as any,
+      };
+
+      await updateUser(user.id, updateData);
 
       setSuccess(true);
 
