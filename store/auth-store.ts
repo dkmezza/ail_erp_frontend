@@ -70,19 +70,31 @@ export const useAuthStore = create<AuthState>((set) => ({
       const token = localStorage.getItem('token');
       const userStr = localStorage.getItem('user');
 
-      if (token && userStr) {
+      if (token && userStr && userStr !== 'undefined') {
         const user = JSON.parse(userStr);
-        set({
-          user,
-          token,
-          isAuthenticated: true,
-          isLoading: false,
-        });
+        
+        // Validate that user object has required properties
+        if (user && user.id && user.email) {
+          set({
+            user,
+            token,
+            isAuthenticated: true,
+            isLoading: false,
+          });
+        } else {
+          // Invalid user data, clear it
+          localStorage.removeItem('token');
+          localStorage.removeItem('user');
+          set({ isLoading: false });
+        }
       } else {
         set({ isLoading: false });
       }
     } catch (error) {
       console.error('Error initializing auth:', error);
+      // Clear potentially corrupted data
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
       set({ isLoading: false });
     }
   },
