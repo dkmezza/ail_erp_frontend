@@ -17,6 +17,15 @@ export const getAllUsers = async (page = 0, size = 20): Promise<PaginatedRespons
   const response = await api.get<PaginatedResponse<User>>(endpoints.users.list, {
     params: { page, size },
   });
+  
+  // Transform roles to uppercase
+  if (response.data.content) {
+    response.data.content = response.data.content.map(user => ({
+      ...user,
+      role: user.role.toUpperCase() as User['role'],
+    }));
+  }
+  
   return response.data;
 };
 
@@ -25,7 +34,12 @@ export const getAllUsers = async (page = 0, size = 20): Promise<PaginatedRespons
  */
 export const getAllUsersSimple = async (): Promise<User[]> => {
   const response = await api.get<User[]>(endpoints.users.list);
-  return response.data;
+  
+  // Transform roles to uppercase
+  return response.data.map(user => ({
+    ...user,
+    role: user.role.toUpperCase() as User['role'],
+  }));
 };
 
 /**

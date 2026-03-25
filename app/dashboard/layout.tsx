@@ -87,7 +87,8 @@ export default function DashboardLayout({
   // Filter navigation based on user role
   const filteredNavigation = navigation.filter((item) => {
     if (!item.roles) return true;
-    return user && item.roles.includes(user.role);
+    // Convert role to uppercase for comparison since backend returns lowercase
+    return user && item.roles.includes(user.role.toUpperCase() as any);
   });
 
   return (

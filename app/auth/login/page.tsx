@@ -57,7 +57,7 @@ export default function LoginPage() {
         id: response.userId,
         name: response.name,
         email: response.email,
-        role: response.role,
+        role: response.role.toUpperCase() as User['role'], // Convert to uppercase
         department: response.department,
         isActive: true, // Assume active if login successful
         createdAt: new Date().toISOString(),
