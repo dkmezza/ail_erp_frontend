@@ -62,8 +62,10 @@ export interface CashRequisition {
   rejectionReason?: string;
   requestedBy: User;
   approvedBy?: User;
+  rejectedBy?: User;
   disbursedBy?: User;
   approvedAt?: string;
+  rejectedAt?: string;
   disbursedAt?: string;
   createdAt: string;
   updatedAt: string;
