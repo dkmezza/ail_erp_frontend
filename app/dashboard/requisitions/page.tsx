@@ -131,12 +131,10 @@ export default function RequisitionsPage() {
               : 'View and create your cash requisitions'}
           </p>
         </div>
-        {user?.role && ['FIELD_STAFF', 'ADMIN'].includes(user.role) && (
-          <Button onClick={() => setIsCreateDialogOpen(true)}>
-            <Plus className="h-4 w-4 mr-2" />
-            New Requisition
-          </Button>
-        )}
+        <Button onClick={() => setIsCreateDialogOpen(true)}>
+          <Plus className="h-4 w-4 mr-2" />
+          New Requisition
+        </Button>
       </div>
 
       {/* Stats Cards */}
