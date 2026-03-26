@@ -209,8 +209,8 @@ export function RequisitionDetailsDialog({
                 </div>
               </div>
 
-              {/* Approved */}
-              {requisition.approvedAt && requisition.approvedBy && (
+              {/* Approved*/}
+              {requisition.approvedAt && requisition.approvedBy && requisition.status !== 'REJECTED' && (
                 <div className="flex gap-3">
                   <div className="flex flex-col items-center">
                     <div className="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center">
@@ -232,8 +232,8 @@ export function RequisitionDetailsDialog({
                 </div>
               )}
 
-              {/* Rejected */}
-              {requisition.rejectedAt && requisition.rejectedBy && (
+              {/* Rejected - use approvedAt/approvedBy since backend reuses those fields */}
+              {requisition.status === 'REJECTED' && requisition.approvedAt && requisition.approvedBy && (
                 <div className="flex gap-3">
                   <div className="flex flex-col items-center">
                     <div className="h-8 w-8 rounded-full bg-red-100 flex items-center justify-center">
@@ -243,10 +243,10 @@ export function RequisitionDetailsDialog({
                   <div className="flex-1">
                     <p className="font-medium text-sm text-red-600">Rejected</p>
                     <p className="text-xs text-gray-500">
-                      {formatDateTime(requisition.rejectedAt)}
+                      {formatDateTime(requisition.approvedAt)}
                     </p>
                     <p className="text-xs text-gray-500">
-                      by {requisition.rejectedBy.name}
+                      by {requisition.approvedBy.name}
                     </p>
                   </div>
                 </div>
