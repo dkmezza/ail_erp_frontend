@@ -118,8 +118,6 @@ export interface ExpenditureRetirement {
   attachments: RetirementAttachment[];
 }
 
-export type RetirementStatus = 'PENDING' | 'APPROVED' | 'REJECTED';
-
 export interface RetirementLineItem {
   id: number;
   date: string;
@@ -135,6 +133,8 @@ export interface RetirementAttachment {
   fileSize: number;
   uploadedAt: string;
 }
+
+export type RetirementStatus = 'PENDING' | 'APPROVED' | 'REJECTED';
 
 export interface CreateRetirementRequest {
   requisitionId: number;
@@ -152,6 +152,14 @@ export interface CreateRetirementRequest {
 export interface CreateRetirementFormData {
   retirement: string; // JSON stringified CreateRetirementRequest
   files: File[];
+}
+
+export interface ApproveRetirementRequest {
+  financeNotes?: string;
+}
+
+export interface RejectRetirementRequest {
+  financeNotes: string; // Rejection reason is mandatory
 }
 
 // ----------------------------------------------------------------------------
